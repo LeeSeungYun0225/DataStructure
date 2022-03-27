@@ -4,18 +4,63 @@ import java.io.*;
 public class mainClass {
 	public static void main(String[] args) throws IOException
 	{
-		int[] test = {5,7,2,3,1,8,4,9};
+		BinarySearchTree bst = new BinarySearchTree();
+		TreeNode root = new TreeNode();
+		bst.BSTMakeAndInit(root);
 		
-		Sort st = new Sort();
+		bst.BSTInsert(root, 9, "9");
+		bst.BSTInsert(root, 1, "1");
+		bst.BSTInsert(root, 6, "6");
+		bst.BSTInsert(root, 2, "2");
+		bst.BSTInsert(root, 8, "8");
+		bst.BSTInsert(root, 3, "3");
+		bst.BSTInsert(root, 5, "5");
 		
-		st.QuickSort(test,0,test.length-1);
+		TreeNode search;
 		
-		for(int i=0;i<test.length;i++)
+		search = bst.BSTSearch(root, 1);
+		
+		if(search == null)
 		{
-			System.out.print(" " + test[i]);
+			System.out.println("탐색 실패");
 		}
-	
-	}
+		else
+		{
+			System.out.println("키 값 "+ search.key + "을 찾았습니다.");
+		}
+		
+		search = bst.BSTSearch(root, 4);
+		
+		if(search == null)
+		{
+			System.out.println("탐색 실패");
+		}
+		else
+		{
+			System.out.println("키 값 "+ search.key + "을 찾았습니다.");
+		}
+		
+		search = bst.BSTSearch(root, 6);
+		
+		if(search == null)
+		{
+			System.out.println("탐색 실패");
+		}
+		else
+		{
+			System.out.println("키 값 "+ search.key + "을 찾았습니다.");
+		}
+		search = bst.BSTSearch(root, 7);
+		
+		if(search == null)
+		{
+			System.out.println("탐색 실패");
+		}
+		else
+		{
+			System.out.println("키 값 "+ search.key + "을 찾았습니다.");
+		}
+	}	
 	
 	
 	

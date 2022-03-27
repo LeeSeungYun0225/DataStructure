@@ -1,91 +1,89 @@
+ 
+public class List_Tree {
 
-public class List_Tree<T>  {
-	
-	List_Tree<T> prev;
-	List_Tree<T> next;
-	T data;
 	List_Tree()
+	{}
+
+	
+	public Object getData(TreeNode node) // 데이터 반환 
 	{
-		data = null;
-		prev = null;
-		next = null;
+		return node.data;
+	}
+	
+	public int getKey(TreeNode node) // 키 반환 
+	{
+		return node.key;
+	}
+	
+	public void setData(TreeNode node, char in) // 데이터 저장
+	{
+		node.data = in;
+	}
+	
+	public TreeNode getLeftSubTree(TreeNode node) // 왼쪽 서브트리 반환
+	{
+		return node.prev;
+	}
+	
+	public TreeNode getRightSubTree(TreeNode node) // 오른쪽 서브트리 반환
+	{
+		return node.next;
+	}
+	
+	
+	
+	
+	public void chainLeftSubTree(TreeNode node,TreeNode subnode) // 왼쪽 서브트리 연결 
+	{
+		node.prev = subnode;
+	}
+	
+	public void chainRightSubTree(TreeNode node,TreeNode subnode) // 오른쪽 서브트리 연결 
+	{
+		node.next = subnode;
+	}
+	
+	
+	public void InorderTraverse(TreeNode node)  // 중위순회 ,
+	{
+		
+		if(getLeftSubTree(node) != null)
+		{
+			InorderTraverse(getLeftSubTree(node));
+		}
+		
+		System.out.print(node.data + "");
+		if(getRightSubTree(node) != null)
+		{
+			InorderTraverse(getLeftSubTree(node));
+		}
 		
 	}
 	
-	public Object getData() // 데이터 반환 
+	public void PreorderTraverse(TreeNode node) // 전위 순회,
 	{
-		return data;
-	}
-	
-	public void setData(T in) // 데이터 저장
-	{
-		data = in;
-	}
-	
-	public List_Tree<T> getLeftSubTree() // 왼쪽 서브트리 반환
-	{
-		return prev;
-	}
-	
-	public List_Tree<T> getRightSubTree() // 오른쪽 서브트리 반환
-	{
-		return next;
-	}
-	
-	
-	
-	
-	public void chainLeftSubTree(List_Tree<T> sub) // 왼쪽 서브트리 연결 
-	{
-		prev = sub;
-	}
-	
-	public void chainRightSubTree(List_Tree<T> sub) // 오른쪽 서브트리 연결 
-	{
-		next = sub;
-	}
-	
-	
-	public void InorderTraverse()  // 중위순회 ,
-	{
-		
-		if(getLeftSubTree() != null)
+		System.out.print(node.data + "");
+		if(getLeftSubTree(node) != null)
 		{
-			getLeftSubTree().InorderTraverse();
+			PreorderTraverse(getLeftSubTree(node));
 		}
-		
-		System.out.print(data+ "");
-		if(getRightSubTree() != null)
+		if(getRightSubTree(node) != null)
 		{
-			getRightSubTree().InorderTraverse();
-		}
-		
-	}
-	
-	public void PreorderTraverse() // 전위 순회,
-	{
-		System.out.print(data+ "");
-		if(getLeftSubTree() != null)
-		{
-			getLeftSubTree().InorderTraverse();
-		}
-		if(getRightSubTree() != null)
-		{
-			getRightSubTree().InorderTraverse();
+			PreorderTraverse(getLeftSubTree(node));
 		}
 	}
 	
-	public void PostorderTraverse() // 후위순회 
+	public void PostorderTraverse(TreeNode node) // 후위순회 
 	{
-		if(getLeftSubTree() != null)
+		if(getLeftSubTree(node) != null)
 		{
-			getLeftSubTree().InorderTraverse();
+			PostorderTraverse(getLeftSubTree(node));
 		}
-		if(getRightSubTree() != null)
+		if(getRightSubTree(node) != null)
 		{
-			getRightSubTree().InorderTraverse();
+			PostorderTraverse(getLeftSubTree(node));
 		}
-		System.out.print(data+ "");
+		System.out.print(node.data 	+ "");
 	}
 
 }
