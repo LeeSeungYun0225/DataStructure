@@ -4,63 +4,38 @@ import java.io.*;
 public class mainClass {
 	public static void main(String[] args) throws IOException
 	{
-		BinarySearchTree bst = new BinarySearchTree();
-		TreeNode root = new TreeNode();
-		bst.BSTMakeAndInit(root);
+		AVL bst = new AVL();
+
+
 		
-		bst.BSTInsert(root, 9, "9");
-		bst.BSTInsert(root, 1, "1");
-		bst.BSTInsert(root, 6, "6");
-		bst.BSTInsert(root, 2, "2");
-		bst.BSTInsert(root, 8, "8");
-		bst.BSTInsert(root, 3, "3");
-		bst.BSTInsert(root, 5, "5");
+		bst.BSTInsert(20, "20");
+		bst.BSTShowAll();
+		bst.BSTInsert(15, "15");
+		bst.BSTShowAll();
+		bst.BSTInsert(3, "3");
+		bst.BSTShowAll();
+		System.out.println("현재 루트 : " + bst.getRoot().getKey());
+		bst.BSTInsert(12, "12");
+		bst.BSTShowAll();
+		bst.BSTInsert(5, "5");
+		bst.BSTShowAll();
+		System.out.println("현재 루트 : " + bst.getRoot().getKey());
+		bst.BSTInsert(11, "11");
+		bst.BSTShowAll();
+		System.out.println("현재 루트 : " + bst.getRoot().getKey());
+		bst.BSTInsert(6, "6");
+		bst.BSTShowAll();
+		bst.BSTInsert(40, "40");
+		bst.BSTShowAll();
+		System.out.println("현재 루트 : " + bst.getRoot().getKey());
+		bst.BSTInsert(25, "25");
+		bst.BSTShowAll();
+		bst.BSTInsert(18, "18");
+		bst.BSTShowAll();
 		
-		TreeNode search;
-		
-		search = bst.BSTSearch(root, 1);
-		
-		if(search == null)
-		{
-			System.out.println("탐색 실패");
-		}
-		else
-		{
-			System.out.println("키 값 "+ search.key + "을 찾았습니다.");
-		}
-		
-		search = bst.BSTSearch(root, 4);
-		
-		if(search == null)
-		{
-			System.out.println("탐색 실패");
-		}
-		else
-		{
-			System.out.println("키 값 "+ search.key + "을 찾았습니다.");
-		}
-		
-		search = bst.BSTSearch(root, 6);
-		
-		if(search == null)
-		{
-			System.out.println("탐색 실패");
-		}
-		else
-		{
-			System.out.println("키 값 "+ search.key + "을 찾았습니다.");
-		}
-		search = bst.BSTSearch(root, 7);
-		
-		if(search == null)
-		{
-			System.out.println("탐색 실패");
-		}
-		else
-		{
-			System.out.println("키 값 "+ search.key + "을 찾았습니다.");
-		}
-	}	
+	}
+
+
 	
 	
 	

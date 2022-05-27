@@ -1,102 +1,66 @@
  
-public class List_Tree {
+public class List_Tree  {
 
+	
 	List_Tree()
 	{}
 
-	
-	public Object getData(TreeNode node) // 데이터 반환 
-	{
-		return node.data;
-	}
-	
-	public int getKey(TreeNode node) // 키 반환 
-	{
-		return node.key;
-	}
-	
-	public void setData(TreeNode node, char in) // 데이터 저장
-	{
-		node.data = in;
-	}
-	
-	public TreeNode getLeftSubTree(TreeNode node) // 왼쪽 서브트리 반환
-	{
-		return node.prev;
-	}
-	
-	public TreeNode getRightSubTree(TreeNode node) // 오른쪽 서브트리 반환
-	{
-		return node.next;
-	}
-	
-	
-	
-	
-	public void chainLeftSubTree(TreeNode node,TreeNode subnode) // 왼쪽 서브트리 연결 
-	{
-		node.prev = subnode;
-	}
-	
-	public void chainRightSubTree(TreeNode node,TreeNode subnode) // 오른쪽 서브트리 연결 
-	{
-		node.next = subnode;
-	}
-	
-	
 	public void InorderTraverse(TreeNode node)  // 중위순회 ,
 	{
-		
-		if(getLeftSubTree(node) != null)
+		if(node == null)
 		{
-			InorderTraverse(getLeftSubTree(node));
+			return;
 		}
+
+		InorderTraverse(node.getLeftSubTree());
 		
-		System.out.print(node.data + "");
-		if(getRightSubTree(node) != null)
-		{
-			InorderTraverse(getLeftSubTree(node));
-		}
 		
+		System.out.print(node.key+", " );
+
+		InorderTraverse(node.getRightSubTree());
 	}
+	
 	
 	public void PreorderTraverse(TreeNode node) // 전위 순회,
 	{
-		System.out.print(node.data + "");
-		if(getLeftSubTree(node) != null)
+		if(node == null)
 		{
-			PreorderTraverse(getLeftSubTree(node));
+			return;
 		}
-		if(getRightSubTree(node) != null)
-		{
-			PreorderTraverse(getLeftSubTree(node));
-		}
+		System.out.print(node.key + "");
+
+		PreorderTraverse(node.getLeftSubTree());
+
+
+		PreorderTraverse(node.getRightSubTree());
+
 	}
 	
 	public void PostorderTraverse(TreeNode node) // 후위순회 
 	{
-		if(getLeftSubTree(node) != null)
+		if(node == null)
 		{
-			PostorderTraverse(getLeftSubTree(node));
+			return;
 		}
-		if(getRightSubTree(node) != null)
-		{
-			PostorderTraverse(getLeftSubTree(node));
-		}
-		System.out.print(node.data 	+ "");
+
+		PostorderTraverse(node.getLeftSubTree());
+
+		PostorderTraverse(node.getRightSubTree());
+
+		System.out.print(node.key 	+ "");
 	}
 
 }
 
 
-/*List_Tree<String> root = new List_Tree<String>();
-		List_Tree<String> t1 = new List_Tree<String>();
+/*List_Tree root = new List_Tree();
+		List_Tree t1 = new List_Tree();
 		
 		
-		List_Tree<String> t2 = new List_Tree<String>();
-		List_Tree<String> t3 = new List_Tree<String>();
-		List_Tree<String> t4 = new List_Tree<String>();
-		List_Tree<String> t5 = new List_Tree<String>();
+		List_Tree<String> t2 = new List_Tree();
+		List_Tree<String> t3 = new List_Tree();
+		List_Tree<String> t4 = new List_Tree();
+		List_Tree<String> t5 = new TreeNode();
 		List_Tree<String> t6 = new List_Tree<String>();
 		
 		root.chainLeftSubTree(t1);
