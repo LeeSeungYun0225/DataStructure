@@ -12,7 +12,7 @@ public class Queue_List<T> extends _linkedList<T>{ // 연결 리스트 큐
 	}
 	
 	
-	public void enQueue(Object data_in)
+	public void enQueue(T data_in)
 	{
 		
 		list_Insert(data_in);
@@ -28,7 +28,7 @@ public class Queue_List<T> extends _linkedList<T>{ // 연결 리스트 큐
 		}
 	}
 	
-	public Object deQueue()
+	public T deQueue()
 	{
 		if(queueIsEmpty())
 		{
@@ -42,7 +42,7 @@ public class Queue_List<T> extends _linkedList<T>{ // 연결 리스트 큐
 		list_deleteFirst();
 		return temp.data;
 	}
-	public Object qPeek()
+	public T qPeek()
 	{
 		if(queueIsEmpty())
 		{

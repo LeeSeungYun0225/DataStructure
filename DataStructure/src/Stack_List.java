@@ -4,7 +4,7 @@ public class Stack_List<T> extends _linkedList<T>{ // 연결 리스트를 활용한 스택 
 	
 	//top이 존재할 필요가 없음 > tail 변수가 top의 역할을 한다.  
 	
-	Stack_List()
+	public Stack_List()
 	{
 		head = null;
 		tail = null;
